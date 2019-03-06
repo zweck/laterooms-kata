@@ -1,4 +1,5 @@
 import * as R from 'ramda'
+import { FILTER_BY_FACILITY } from '../actions'
 export const defaultState = [
   {
     name: "hotelone",
@@ -17,7 +18,17 @@ export const defaultState = [
   }
 ]
 
+const filterByFacility = filteredFacilities => hotel => R.all(
+  (faciliy) => (
+    R.includes(faciliy, hotel.facilities)
+  )
+)(filteredFacilities)
+
 const handlers = {
+  [FILTER_BY_FACILITY]: (state, action) => {
+    const facilityFilter = R.filter(filterByFacility(action.payload))
+    return facilityFilter(state)
+  }
 }
 
 export default (state = defaultState, action) => {
