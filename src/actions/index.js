@@ -1,0 +1,1 @@
+export const FILTER_BY_FACILITY = 'FILTER_BY_FACILITY'
