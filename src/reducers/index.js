@@ -1,5 +1,10 @@
 import * as R from 'ramda'
-import { FILTER_BY_FACILITIES } from '../actions'
+import {
+  SORT_BY_STAR_DESC,
+  SORT_BY_STAR_ASC,
+  FILTER_BY_FACILITIES
+} from '../actions'
+
 export const defaultState = [
   {
     name: "hotelone",
@@ -24,7 +29,10 @@ const filterByFacility = filteredFacilities => hotel => R.all(
   )
 )(filteredFacilities)
 
+const sortHotelsAsc = state => R.sortBy(R.prop('starRating'), state)
 const handlers = {
+  [SORT_BY_STAR_ASC]: state => sortHotelsAsc(state),
+  [SORT_BY_STAR_DESC]: state => R.reverse(sortHotelsAsc(state)),
   [FILTER_BY_FACILITIES]: (state, action) => {
     const facilityFilter = R.filter(filterByFacility(action.payload))
     return facilityFilter(defaultState)
