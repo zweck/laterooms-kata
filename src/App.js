@@ -13,17 +13,17 @@ export const App = ({
   hotels = [],
   facilities = [] }) => {
   return (
-    <div className="text-center">
-      <header className="bg-blue-light m-6 p-6 rounded shadow-lg">
+    <div className="text-center flex flex-col items-center">
+      <header className="bg-blue-light m-6 p-6 rounded shadow-lg max-w-sm">
         <h1 className="text-white text-3xl">Hotel finder</h1>
-        <span>
-          Please select some facilities
+        <p>
+          <span className='text-white text-xl p-2'>Please select some facilities</span>
           <HotelSelector
             filterOptions={filterOptions}
             facilities={facilities} />
-        </span>
+        </p>
       </header>
-      <section>
+      <section className='result-list'>
         {R.map(hotel => (
           <HotelCard key={hotel.name} {...hotel} />
         ), hotels)}
