@@ -1,5 +1,5 @@
 import reducer, { defaultState } from './index'
-import { FILTER_BY_FACILITY } from '../actions'
+import { FILTER_BY_FACILITIES } from '../actions'
 
 const GYM_STORE = [
   {
@@ -25,7 +25,7 @@ describe('reducer test', () => {
   it('should filter hotels by a given facility', () => {
     const reducedState = reducer(
       defaultState,
-      { type: FILTER_BY_FACILITY, payload: ['gym'] }
+      { type: FILTER_BY_FACILITIES, payload: ['gym'] }
     )
     expect(reducedState).toEqual(GYM_STORE)
   })
@@ -33,7 +33,7 @@ describe('reducer test', () => {
   it('should filter hotels by a multiple facilities', () => {
     const reducedState = reducer(
       defaultState,
-      { type: FILTER_BY_FACILITY, payload: ['car park', 'pool'] }
+      { type: FILTER_BY_FACILITIES, payload: ['car park', 'pool'] }
     )
     expect(reducedState).toEqual(POOL_STORE)
   })
@@ -41,7 +41,7 @@ describe('reducer test', () => {
   it('should return multiple hotels that share a facility', () => {
     const reducedState = reducer(
       defaultState,
-      { type: FILTER_BY_FACILITY, payload: ['car park'] }
+      { type: FILTER_BY_FACILITIES, payload: ['car park'] }
     )
     expect(reducedState).toEqual([ ...POOL_STORE, ...GYM_STORE ])
   })

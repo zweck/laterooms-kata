@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactSelect from 'react-select'
+import * as R from 'ramda'
 
 const HotelSelector = ({
-  filterFacilities,
+  filterOptions,
   facilities = []
 }) => {
-  const onChangeHandler = () => filterFacilities()
+  const onChangeHandler = selected => filterOptions(R.map(({ value }) => value, selected))
   return <ReactSelect
            isMulti
            onChange={onChangeHandler}
