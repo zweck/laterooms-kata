@@ -1,8 +1,9 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as R from 'ramda'
 
 const HotelCard = ({
-  hotelName,
+  name,
   starRating,
   facilities = []
 }) => (
@@ -12,7 +13,7 @@ const HotelCard = ({
       src="https://placeimg.com/300/300/arch"
       alt="Sunset in the mountains" />
     <div className="px-6 py-4">
-      <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
+      <div className="font-bold text-xl mb-2">{name}</div>
       <p>
         {R.map((i) => <span key={i}>★</span>, R.range(0, starRating))}
       </p>
@@ -34,5 +35,11 @@ const HotelCard = ({
     </div>
   </div>
 )
+
+HotelCard.propTypes = {
+  name: PropTypes.string,
+  starRating: PropTypes.number,
+  facilities: PropTypes.array
+}
 
 export default HotelCard
