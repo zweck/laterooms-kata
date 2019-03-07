@@ -27,7 +27,7 @@ const filterByFacility = filteredFacilities => hotel => R.all(
 const handlers = {
   [FILTER_BY_FACILITIES]: (state, action) => {
     const facilityFilter = R.filter(filterByFacility(action.payload))
-    return facilityFilter(state)
+    return facilityFilter(defaultState)
   }
 }
 
