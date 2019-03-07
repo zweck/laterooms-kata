@@ -16,18 +16,22 @@ export const App = ({
   hotels = [],
   facilities = [] }) => {
   return (
-    <div className="text-center flex flex-col items-center">
-      <header className="bg-blue-light m-6 p-6 rounded shadow-lg max-w-sm">
+    <div className="bg-grey-lighter text-center flex flex-col items-center">
+      <header className="bg-teal m-6 p-6 rounded shadow-lg max-w-sm">
         <h1 className="text-white text-3xl">Hotel finder</h1>
         <div className='m-2'>
           <span className='text-white text-xl p-2'>Please select some facilities</span>
           <HotelSelector
             filterOptions={filterOptions}
             facilities={facilities} />
-          <div className='m-2'>
+          <div className='m-2 text-teal-darker'>
             <span> Sort By Star </span>
-              <button onClick={sortHotelsAsc}>▲</button>
-              <button onClick={sortHotelsDesc}>▼</button>
+            <button
+              className="text-teal-darker"
+              onClick={sortHotelsAsc}>▲</button>
+            <button
+              className="text-teal-darker"
+              onClick={sortHotelsDesc}>▼</button>
           </div>
         </div>
       </header>

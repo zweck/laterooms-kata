@@ -7,7 +7,7 @@ const HotelCard = ({
   starRating,
   facilities = []
 }) => (
-  <div className="max-w-sm rounded overflow-hidden shadow-lg m-4">
+  <div className="bg-white max-w-sm rounded overflow-hidden shadow-lg m-4">
     <img
       className="w-full"
       src="https://placeimg.com/300/300/arch"
